@@ -23,24 +23,33 @@ console.log(collection);
 
 
 
-function showCollection(param1) {
+function showCollection(searchFor) {
+    searchResults = [];
     for (i=0; i<collection.length; i++) {
-        alert(param1[i])
-    }
-} 
+        if (collection[i].record.artist === searchFor) {
+            searchResults.push(collection[i].record);
+        }
+        if (collection[i].record.title === searchFor) {
+            searchResults.push(collection[i].record);
+        }
+        if (collection[i].record.yearPublished === searchFor) {
+            searchResults.push(collection[i].record);
+        }
+    } 
+    return searchResults
+}
 
-
-// console.log(showCollection('Mac Miller'));
+console.log(showCollection('2007'));
 // Could NOT get this one to work!!! I'm not 100% on what the instructions are wanting the function to achieve.
 
 function findByArtist(artist) {
-    searchResults = [];
+    artistResults = [];
     for (i=0; i<collection.length; i++) {
         if (collection[i].record.artist === artist) {
-            searchResults.push(collection[i].record);
+            artistResults.push(collection[i].record);
         }
     }
-    return searchResults
+    return artistResults
 }
 
 console.log(findByArtist('Mac Miller'));
@@ -58,4 +67,4 @@ console.log(findByArtist('Mac Miller'));
 // pacMan.yearReleased = '1980';
 
 // console.log(tombRaider, marioPikmin);
-// console.log(pacMan);
+// console.log(pacMan)
